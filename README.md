@@ -2,4 +2,4 @@
 
 > Examples of design patterns with C#.
 
-[![.NET](https://github.com/atrakic/design-patterns-charp/actions/workflows/ci.yml/badge.svg)](https://github.com/atrakic/design-patterns-charp/actions/workflows/ci.yml)
+[![ci](https://github.com/atrakic/design-patterns-csharp/actions/workflows/ci.yaml/badge.svg)](https://github.com/atrakic/design-patterns-csharp/actions/workflows/ci.yaml)
