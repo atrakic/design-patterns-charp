@@ -11,7 +11,6 @@ on:
     - '**.csproj'
 
 env:
-  DOTNET_INSTALL_DIR: '.\.dotnet'
   DOTNET_VERSION: '8.x' # The .NET SDK version to use
 
 jobs:
@@ -24,7 +23,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-        
+
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v3
       with:
