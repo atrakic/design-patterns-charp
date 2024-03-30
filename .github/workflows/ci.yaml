@@ -11,6 +11,7 @@ on:
     - '**.csproj'
 
 env:
+  DOTNET_INSTALL_DIR: '.\.dotnet'
   DOTNET_VERSION: '8.x' # The .NET SDK version to use
 
 jobs:
@@ -22,8 +23,18 @@ jobs:
         os: [ubuntu-latest]
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v4
+    
+    - name: Cache dotnet
+      id: cache-dotnet
+      uses: actions/cache@v4
+      with:
+        path: ${{ env.DOTNET_INSTALL_DIR }}
+        key: ${{ runner.os }}-dotnet
+        restore-keys: ${{ runner.os }}-dotnet
+        
     - name: Setup .NET Core
+      if: ${{ steps.cache-dotnet.outputs.cache-hit != 'true' }}
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: ${{ env.DOTNET_VERSION }}
