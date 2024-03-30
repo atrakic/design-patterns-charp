@@ -1,14 +1,11 @@
+all: build test dos2unix
 
-# Build and test the project
-all: build test
-
-
-# Build the project
 build:
 	dotnet restore
 	dotnet build --configuration Release --no-restore
 
+dos2unix:
+	find . -type f -name '*.cs' -exec dos2unix {} \;
 
-# Test the project
 test:
 	dotnet test --configuration Release --no-restore
