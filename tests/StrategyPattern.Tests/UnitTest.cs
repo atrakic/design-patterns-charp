@@ -1,5 +1,7 @@
 namespace StrategyPattern.Tests;
 
+using NSubstitute;
+
 public class UnitTest
 {
     [Fact]
@@ -14,4 +16,20 @@ public class UnitTest
 
         Assert.True(container is not null);
     }
+
+    [Fact]
+    public void TestNSubstitute()
+    {
+        // Arrange
+        var strategy = Substitute.For<IStrategy>();
+        var container = new StrategyContainer();
+
+        // Act
+        container.SetStrategy(strategy);
+        container.ExecuteStrategy();
+
+        // Assert
+        strategy.Received().Execute();
+    }
+
 }
