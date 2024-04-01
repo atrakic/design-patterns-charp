@@ -2,7 +2,7 @@ namespace FacadePattern;
 
 public class Facade : IFacade
 {
-    private ComplexSystem _system;
+    private ComplexSystem? _system;
 
     public void SetSystem(ComplexSystem complexSystem)
     {
@@ -11,8 +11,8 @@ public class Facade : IFacade
 
     public void PerformOperation()
     {
-        _system.Operation1();
-        _system.Operation2();
-        _system.Operation3();
+        _system?.Operation1();
+        _system?.Operation2();
+        _system?.Operation3();
     }
 }
